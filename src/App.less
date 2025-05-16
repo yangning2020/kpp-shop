@@ -1,0 +1,211 @@
+html,
+body {
+  height: 100%; /* 确保整个页面的高度是 100% */
+  width: 100%; /* 确保整个页面的宽度是 100% */
+  margin: 0; /* 移除默认的 margin */
+  overflow: hidden; /* 禁止页面级别的滚动 */
+  letter-spacing: 0.2px;
+  font-family: @font-family;
+  user-select: none; /* 禁止选中文字 */
+  -webkit-user-select: none; /* 禁止选中文字 */
+  -moz-user-select: none; /* 禁止选中文字 */
+  -ms-user-select: none; /* 禁止选中文字 */
+  -webkit-touch-callout: none; /* 禁止长按选中文字 */
+}
+
+//字體統一
+input {
+  font-family: 'mydefault', sans-serif;
+}
+
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  //取消京東tab pane的padding
+  --nutui-tabs-tabpane-padding: '0';
+  --adm-font-size-main: 12px;
+  // 需非heavy字體替換nutui預設字體達到統一（？）
+  --adm-font-family: 'mydefault', sans-serif;
+  font-family: @font-family;
+}
+@font-family: 'mydefault', sans-serif;
+@themeColor: var(--primary-color, #ffe60f);
+@color-background: green;
+
+textarea {
+  font-family: 'mydefault', sans-serif;
+}
+
+textarea::placeholder {
+  font-family: 'mydefault', sans-serif;
+}
+
+//底部tabbar去除邊緣
+.nut-tabbar {
+  border: 0px !important;
+}
+
+.nut-tour-content-bottom-operate-btn {
+  color: black !important;
+  background: #ffe60f !important;
+  border: 0px !important;
+}
+.nut-tour-content-bottom-operate-btn.active {
+  color: black !important;
+  background: #ffe60f !important;
+  border: 0px !important;
+}
+
+//tab中title元素的間距
+.nut-tabs-titles-item {
+  padding: 0px 10px 0px 10px !important;
+}
+
+//nut - form 全部居中設定值
+.nut-form-item {
+  align-items: center;
+}
+
+// antd selector 樣式優化
+// .ant-select-selector {
+//   background-color: #f4f4f6 !important;
+//   border: none !important;
+//   border-radius: 10px !important;
+//   line-height: 25px !important;
+//   height: 30px !important;
+// }
+.myselector .ant-select-selector {
+  background-color: #f4f4f6 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  line-height: 25px !important;
+  height: 30px !important;
+}
+
+//tabs 被選擇的元素處理: 文字處於線的上面, 線加粗, 文字字體切換
+.nut-tabs-titles-item-active .nut-tabs-titles-item-text {
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    @themeColor 60%,
+    @themeColor 85%,
+    transparent 85%
+  );
+}
+
+.nut-tabs-titles-item-line {
+  height: 0px !important;
+  width: 50% !important;
+  margin-bottom: 2px;
+}
+
+.nut-tabs-titles-item-active {
+  font-family: 'myfont', sans-serif;
+  font-size: 1.1em !important;
+  margin-top: -2px;
+}
+
+.nut-popover-content {
+  font-family: 'mydefault', sans-serif !important;
+}
+
+.nut-tour-content-inner {
+  white-space: wrap !important;
+}
+
+//
+.nut-inputnumber {
+  background-color: #f4f4f6 !important;
+  width: 90px !important;
+  border-radius: 15px !important;
+}
+
+input {
+  font-weight: 550 !important;
+}
+
+.nut-radio-button {
+  background-color: #f4f4f6 !important;
+}
+
+.nut-radio-button-active {
+  background-color: @themeColor !important;
+  color: #1a1a1a !important;
+}
+
+.nut-button-disabled {
+  color: #8c8c8c !important;
+}
+.nut-button {
+  font-family: @font-family;
+  font-size: bold;
+}
+
+.app {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.body {
+  flex: 1;
+  // display: flex;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.container {
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  overflow: hidden;
+  align-items: stretch;
+  [data-prefers-color='dark'] & {
+    background-color: unset;
+  }
+}
+
+.side {
+  flex: none;
+  overflow-y: scroll;
+}
+
+.main {
+  flex: auto;
+  padding: 0 24px 32px;
+  overflow-y: scroll;
+  h2 {
+    margin: 0;
+    padding: 12px 0;
+  }
+}
+
+//字體
+@font-face {
+  font-family: 'default'; /* 定义字体的名称 */
+  // src: url('/fonts/oppo.woff2') format('woff2'); /* 字体文件的路径和格式 */
+  // src: url('/fonts/Iansui-Regular.ttf') format('truetype'); /* 字体文件的路径和格式 */
+  src: url('/fonts/default.woff2') format('woff2'); /* 字体文件的路径和格式 */
+  // src: url('/fonts/ZenMaruGothic-Bold.ttf') format('truetype'); /* 字体文件的路径和格式 */
+  font-weight: 500; /* 字体的粗细(normal 表示常规字体） */
+  font-style: normal; /* 字体样式(normal 表示常规字体样式） */
+}
+@font-face {
+  font-family: 'mydefault'; /* 定义字体的名称 */
+  // src: url('/fonts/oppo.woff2') format('woff2'); /* 字体文件的路径和格式 */
+  // src: url('/fonts/Iansui-Regular.ttf') format('truetype'); /* 字体文件的路径和格式 */
+  src: url('/fonts/default.woff2') format('woff2'); /* 字体文件的路径和格式 */
+  // src: url('/fonts/ZenMaruGothic-Bold.ttf') format('truetype'); /* 字体文件的路径和格式 */
+  font-weight: 500; /* 字体的粗细(normal 表示常规字体） */
+  font-style: normal; /* 字体样式(normal 表示常规字体样式） */
+}
+@font-face {
+  font-family: 'myfont'; /* 定义字体的名称 */
+  src: url('/fonts/heavy.woff2') format('woff2'); /* 字体文件的路径和格式 */
+  // src: url('/fonts/jf-openhuninn-2.1.ttf') format('truetype');
+  font-weight: normal; /* 字体的粗细（normal 表示常规字体） */
+  font-style: normal; /* 字体样式（normal 表示常规字体样式） */
+}
