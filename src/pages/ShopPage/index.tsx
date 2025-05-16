@@ -136,7 +136,7 @@ const ShopPage: React.FC = () => {
       <div
         style={{
           position: "fixed",
-          bottom: "120px",
+          bottom: "100px",
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
@@ -148,7 +148,7 @@ const ShopPage: React.FC = () => {
           style={{
             color: "black",
             borderRadius: "20px",
-            border: "1px solid black",
+            // border: "1px solid black",
           }}
           onClick={() => {
             const appScheme = "kapaipaitrade://nouse:1234" + location.pathname;

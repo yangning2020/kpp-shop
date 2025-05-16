@@ -61,7 +61,7 @@ const ProductPanel: React.FC<Props> = ({ productList, screenWidth }) => {
           }}
         >
           {productList.map((item, index) => {
-            if (index >= 3 && index <= 17) {
+            if (index >= 3 && index <= 12) {
               return <ShopProductItem product={item} width={smallWidth} />;
             }
           })}
