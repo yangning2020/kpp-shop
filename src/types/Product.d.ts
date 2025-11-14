@@ -40,6 +40,11 @@ export interface ProductItem {
   attach: string[] | null;
   sortTime: string;
   ifPo: boolean;
+  ifLowest: boolean;
+
+  rateCompany?: string;
+  rateId?: string;
+  rateScore?: string;
 }
 
 export interface CreateProductRequestParam {

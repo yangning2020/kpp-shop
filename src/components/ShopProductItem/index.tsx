@@ -10,6 +10,7 @@ import {
 import MyPrice from "@/components/MyPrice";
 import type { ProductItem } from "@/types/Product";
 import RareDisplayInCard from "@/components/RareDisplayInCard";
+import RatedTag from "@/components/RatedTag";
 
 interface Props {
   product: ProductItem;
@@ -147,19 +148,23 @@ const ShopProductItem: React.FC<Props> = (props) => {
                     />
                   </div>
                 )} */}
-                <ConfigProvider theme={{ "--nutui-tag-padding": "0px 1px" }}>
-                  <Tag
-                    style={{ bottom: 0, borderRadius: "2px", padding: "1px" }}
-                    color="white"
-                    background={DEEP_GREY_COLOR}
-                  >
-                    {props.product.stock > 99
-                      ? `x99`
-                      : props.product.stock > 9
-                      ? `x${props.product.stock}`
-                      : `x ${props.product.stock}`}
-                  </Tag>
-                </ConfigProvider>
+                {props.product.condition == "rated" ? (
+                  <RatedTag product={props.product} inProductList={true} />
+                ) : (
+                  <ConfigProvider theme={{ "--nutui-tag-padding": "0px 1px" }}>
+                    <Tag
+                      style={{ bottom: 0, borderRadius: "2px", padding: "1px" }}
+                      color="white"
+                      background={DEEP_GREY_COLOR}
+                    >
+                      {props.product.stock > 99
+                        ? `x99`
+                        : props.product.stock > 9
+                        ? `x${props.product.stock}`
+                        : `x ${props.product.stock}`}
+                    </Tag>
+                  </ConfigProvider>
+                )}
               </Flex>
             </Flex>
           </Row>
