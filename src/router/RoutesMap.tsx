@@ -17,6 +17,10 @@ const routesMap: RouteConfig[] = [
     path: "/shop/:userid",
     element: <ShopPage />,
   },
+  {
+    path: "/api/shop/:userid",
+    element: <ShopPage />,
+  },
 ];
 
 export default routesMap;
