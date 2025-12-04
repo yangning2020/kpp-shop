@@ -18,7 +18,7 @@ const routesMap: RouteConfig[] = [
     element: <ShopPage />,
   },
   {
-    path: "/api/shop/:userid",
+    path: "/seo/shop/:userid",
     element: <ShopPage />,
   },
 ];
