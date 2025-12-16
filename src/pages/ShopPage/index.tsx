@@ -151,7 +151,9 @@ const ShopPage: React.FC = () => {
             // border: "1px solid black",
           }}
           onClick={() => {
-            const appScheme = "kapaipaitrade://nouse:1234" + location.pathname;
+            const appScheme =
+              "kapaipaitrade://nouse:1234" +
+              location.pathname.replace("/seo", "");
             // 尝试通过 URL Scheme 唤醒 App
             window.location.href = appScheme;
 
