@@ -25,6 +25,7 @@ const ShopPage: React.FC = () => {
         sellerId: useridNumber,
         pageSize: 20,
         page: 1,
+        status: "active",
       });
       if (response.code !== 0) {
         //handle backend defined error
