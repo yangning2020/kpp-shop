@@ -66,6 +66,46 @@ const ShopPage: React.FC = () => {
     }
   }, [productList]);
 
+  const isMobileDevice = () => {
+    if ((navigator as any).userAgentData) {
+      return (navigator as any).userAgentData.mobile;
+    }
+
+    const userAgent =
+      navigator.userAgent || navigator.vendor || (window as any).opera;
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      userAgent,
+    );
+  };
+
+  const openInApp = () => {
+    // 電腦直接去trade對應頁
+    if (!isMobileDevice()) {
+      window.location.href =
+        "https://trade.kapaipai.tw" + location.pathname.replace("/seo", "");
+      return;
+    }
+    const appScheme =
+      "kapaipaitrade://nouse:1234" + location.pathname.replace("/seo", "");
+
+    window.location.href = appScheme;
+
+    const timer = setTimeout(() => {
+      window.location.href = "https://kapaipai.tw";
+    }, 10000);
+
+    return timer;
+  };
+
+  useEffect(() => {
+    if (userInfo && productList) {
+      const timer = openInApp();
+      return () => {
+        if (timer) clearTimeout(timer);
+      };
+    }
+  }, [userInfo, productList]);
+
   if (userInfo == null || productList == null) {
     return <></>;
   }
@@ -159,9 +199,8 @@ const ShopPage: React.FC = () => {
             window.location.href = appScheme;
 
             setTimeout(() => {
-              // 如果超過時間還沒跳轉，表示 App 沒有被喚醒（推測）
               window.location.href = "https://kapaipai.tw";
-            }, 15000); // 設定 15 秒 timeout（可調整）
+            }, 10000);
           }}
         >
           從卡拍拍APP打開

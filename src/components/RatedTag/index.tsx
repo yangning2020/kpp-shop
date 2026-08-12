@@ -1,7 +1,7 @@
 import { Tag } from "@nutui/nutui-react";
 import "./index.less";
 import React from "react";
-import { ProductItem } from "@/types/Product";
+import type { ProductItem } from "@/types/Product";
 
 interface Props {
   product: ProductItem;
