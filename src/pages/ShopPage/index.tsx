@@ -89,20 +89,15 @@ const ShopPage: React.FC = () => {
       "kapaipaitrade://nouse:1234" + location.pathname.replace("/seo", "");
 
     window.location.href = appScheme;
-
-    const timer = setTimeout(() => {
-      window.location.href = "https://kapaipai.tw";
-    }, 10000);
-
-    return timer;
   };
 
   useEffect(() => {
     if (userInfo && productList) {
-      const timer = openInApp();
-      return () => {
-        if (timer) clearTimeout(timer);
-      };
+      const timer = setTimeout(() => {
+        openInApp();
+      }, 500);
+
+      return () => clearTimeout(timer);
     }
   }, [userInfo, productList]);
 
