@@ -177,7 +177,7 @@ const ShopPage: React.FC = () => {
       <div
         style={{
           position: "fixed",
-          bottom: "100px",
+          bottom: "80px",
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
@@ -204,6 +204,22 @@ const ShopPage: React.FC = () => {
           }}
         >
           從卡拍拍APP打開
+        </Button>
+
+        <Button
+          color={themeColor}
+          style={{
+            color: "black",
+            borderRadius: "20px",
+            marginTop: "15px",
+          }}
+          onClick={() => {
+            window.location.href =
+              "https://trade.kapaipai.tw" +
+              location.pathname.replace("/seo", "");
+          }}
+        >
+          使用網頁版
         </Button>
       </div>
     </div>
