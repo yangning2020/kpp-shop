@@ -66,29 +66,29 @@ const ShopPage: React.FC = () => {
     }
   }, [productList]);
 
-  const isMobileDevice = () => {
-    if ((navigator as any).userAgentData) {
-      return (navigator as any).userAgentData.mobile;
-    }
+  // const isMobileDevice = () => {
+  //   if ((navigator as any).userAgentData) {
+  //     return (navigator as any).userAgentData.mobile;
+  //   }
 
-    const userAgent =
-      navigator.userAgent || navigator.vendor || (window as any).opera;
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      userAgent,
-    );
-  };
+  //   const userAgent =
+  //     navigator.userAgent || navigator.vendor || (window as any).opera;
+  //   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+  //     userAgent,
+  //   );
+  // };
 
   const openInApp = () => {
-    // 電腦直接去trade對應頁
-    if (!isMobileDevice()) {
-      window.location.href =
-        "https://trade.kapaipai.tw" + location.pathname.replace("/seo", "");
-      return;
-    }
-    const appScheme =
-      "kapaipaitrade://nouse:1234" + location.pathname.replace("/seo", "");
+    // 電腦手機都直接去trade對應頁
+    // if (!isMobileDevice()) {
+    window.location.href =
+      "https://trade.kapaipai.tw" + location.pathname.replace("/seo", "");
+    //   return;
+    // }
+    // const appScheme =
+    //   "kapaipaitrade://nouse:1234" + location.pathname.replace("/seo", "");
 
-    window.location.href = appScheme;
+    // window.location.href = appScheme;
   };
 
   useEffect(() => {
@@ -184,7 +184,6 @@ const ShopPage: React.FC = () => {
           style={{
             color: "black",
             borderRadius: "20px",
-            // border: "1px solid black",
           }}
           onClick={() => {
             const appScheme =
@@ -198,7 +197,34 @@ const ShopPage: React.FC = () => {
             }, 10000);
           }}
         >
-          從卡拍拍APP打開
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "8px",
+            }}
+          >
+            <div
+              style={{
+                width: 50,
+                height: 22,
+                // border: "2px solid #ffffff",
+                background: "#000",
+                borderRadius: "26px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+              }}
+            >
+              <Image
+                src="https://static.kapaipai.tw/image/default/logo_theme_nostar.png"
+                style={{ width: 40 }}
+              />
+            </div>
+            <span style={{ transform: "translateY(-1px)" }}>從APP打開</span>
+          </div>
         </Button>
 
         <Button
