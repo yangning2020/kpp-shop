@@ -5,7 +5,12 @@ interface Props {}
 const NaviPage: React.FC<Props> = () => {
   const openInApp = () => {
     // 電腦手機都直接去trade對應頁
-    // if (!isMobileDevice()) {
+    if (location.pathname.includes("/seo/product")) {
+      window.location.href =
+        "https://trade.kapaipai.tw" +
+        location.pathname.replace("/seo/product", "/shop");
+      return;
+    }
     window.location.href =
       "https://trade.kapaipai.tw" + location.pathname.replace("/seo", "");
     //   return;

@@ -26,6 +26,10 @@ const routesMap: RouteConfig[] = [
     path: "/seo/deck/:deckcode",
     element: <NaviPage />,
   },
+  {
+    path: "/seo/product/:sellerid/:productid",
+    element: <NaviPage />,
+  },
 ];
 
 export default routesMap;
