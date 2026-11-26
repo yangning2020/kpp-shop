@@ -1,3 +1,4 @@
+import NaviPage from "@/pages/NaviPage";
 import ShopPage from "@/pages/ShopPage";
 import { Navigate } from "react-router-dom";
 
@@ -18,8 +19,12 @@ const routesMap: RouteConfig[] = [
     element: <ShopPage />,
   },
   {
-    path: "/seo/shop/:userid",
+    path: "/seo/shop/:userid/:productid",
     element: <ShopPage />,
+  },
+  {
+    path: "/seo/deck/:deckcode",
+    element: <NaviPage />,
   },
 ];
 
